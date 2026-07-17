@@ -2,6 +2,8 @@
 
 An [Ethical Tech CoLab](https://github.com/Ethical-Tech-CoLab) project on how AI supports researchers in developing rigorous, answerable research questions — and what guardrails that use requires.
 
+**🔗 Live site: https://ethical-tech-colab.github.io/ai-research-question-assistant/**
+
 Yorke E. Rhodes III, Nathaniel Fossella, Alexa Shamie, Kirsten Co, Taylor Badt, Amanda Lindsey, Grace Driscoll, Mohagani Townsend, Pegi Bracaj, Vedant Jain
 
 > **Abstract:** AI is increasingly used to help academic researchers pose relevant research questions by mining vast literature for insights. This paper is an overview of how AI techniques and tools address key tasks in a researcher's workflow, such as finding research gaps and comparing results.
@@ -43,4 +45,4 @@ Citation markers in the text (e.g. `[scholink.org]`) appear as plain-text domain
 
 ## Status
 
-The Next.js web application for this project is planned but not yet scaffolded. The repository currently holds the paper and its accompanying prompt materials.
+A static landing page is live on GitHub Pages at **https://ethical-tech-colab.github.io/ai-research-question-assistant/**, served from [index.html](index.html). The repository also holds the full paper and its accompanying prompt materials in `docs/`. A richer Next.js web application is planned.
