@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI-Powered Assistance in Formulating Research Questions · Ethical Tech CoLab</title>
+<meta name="description" content="How AI supports researchers in developing rigorous, answerable research questions — and the guardrails that use requires. An Ethical Tech CoLab project." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --surface: #12151c;
+    --card: #151922;
+    --border: #232833;
+    --border-strong: #333a48;
+    --fg: #eef1f6;
+    --muted: #9aa4b2;
+    --accent: #6ea8fe;
+    --accent-ink: #06121f;
+    --max: 60rem;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --border: #e4e7ec;
+      --border-strong: #d0d5dd;
+      --fg: #10131a;
+      --muted: #566172;
+      --accent: #1f6feb;
+      --accent-ink: #ffffff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+  header.hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(60rem 30rem at 70% -10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+      var(--surface);
+  }
+  .hero .wrap { padding-top: 4.5rem; padding-bottom: 4rem; }
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 1rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.05; margin: 0 0 1.25rem; letter-spacing: -.01em;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: 42rem; margin: 0 0 1.75rem; }
+  .authors { font-size: .9rem; color: var(--muted); max-width: 46rem; }
+  .btns { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .7rem 1.15rem; border-radius: 999px; font-weight: 600; font-size: .92rem;
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { text-decoration: none; filter: brightness(1.06); }
+  .btn.ghost { border: 1px solid var(--border-strong); color: var(--fg); }
+  .btn.ghost:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+  section h2 {
+    font-size: 1.6rem; margin: 0 0 .4rem; letter-spacing: -.01em;
+  }
+  section .sub { color: var(--muted); margin: 0 0 2rem; max-width: 44rem; }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 1rem;
+    padding: 1.4rem; transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--border-strong); }
+  .card .n {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .78rem; color: var(--accent); letter-spacing: .1em;
+  }
+  .card h3 { font-size: 1.1rem; margin: .5rem 0 .5rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+  ul.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; max-width: 46rem; }
+  ul.checks li { position: relative; padding-left: 1.9rem; color: var(--muted); }
+  ul.checks li::before {
+    content: "✓"; position: absolute; left: 0; top: 0;
+    color: var(--accent); font-weight: 700;
+  }
+  ul.checks li b { color: var(--fg); font-weight: 600; }
+  .callout {
+    margin-top: 2rem; padding: 1.25rem 1.4rem; border-radius: 1rem;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); font-size: .95rem;
+  }
+  .callout b { color: var(--fg); }
+  .docs { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+  .doc {
+    display: block; background: var(--card); border: 1px solid var(--border);
+    border-radius: 1rem; padding: 1.4rem; transition: border-color .2s, transform .2s;
+  }
+  .doc:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+  .doc h3 { margin: 0 0 .4rem; font-size: 1.05rem; color: var(--fg); }
+  .doc p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .doc .arrow { color: var(--accent); font-size: .85rem; margin-top: .8rem; display: inline-block; }
+  footer { padding: 3rem 0; color: var(--muted); font-size: .85rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; }
+  footer .sep { opacity: .4; }
+  .disclaimer { margin-top: 1rem; font-size: .78rem; opacity: .8; max-width: 48rem; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Ethical Tech CoLab · Fall 2025 Cohort</p>
+    <h1>AI-Powered Assistance in<br /><em>Formulating Research Questions</em></h1>
+    <p class="lede">
+      A survey of how AI helps researchers move from a broad area of interest to a
+      well-formed, answerable research question — and the guardrails that responsible
+      use demands.
+    </p>
+    <p class="authors">
+      Yorke E. Rhodes III, Nathaniel Fossella, Alexa Shamie, Kirsten Co, Taylor Badt,
+      Amanda Lindsey, Grace Driscoll, Mohagani Townsend, Pegi Bracaj, Vedant Jain
+    </p>
+    <div class="btns">
+      <a class="btn primary" href="https://docs.google.com/document/d/e/2PACX-1vSvmcQY-2oere7kNU0Uc5YgKTsf3bKVPVPBCHxH-Mb10rZIzksvaFkcHXFfWZFkWmB6ME8OeMEZrDso/pub">Read the full paper ↗</a>
+      <a class="btn ghost" href="https://github.com/Ethical-Tech-CoLab/ai-research-question-assistant">View on GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Five ways AI assists question formulation</h2>
+    <p class="sub">
+      The paper surveys where AI genuinely helps across a researcher's workflow —
+      from scouting the literature to drafting a candidate question.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <span class="n">01</span>
+        <h3>Identifying research gaps</h3>
+        <p>NLP gap finders (GapFinder), keyword co-occurrence graphs, and knowledge-graph analysis surface topics that remain under-investigated.</p>
+      </div>
+      <div class="card">
+        <span class="n">02</span>
+        <h3>Formulating new questions</h3>
+        <p>Systems like SCIMUSE (a 58M-paper graph plus GPT-4) and AGATHA generate candidate questions — about 25% of SCIMUSE's ideas were rated highly interesting by expert reviewers.</p>
+      </div>
+      <div class="card">
+        <span class="n">03</span>
+        <h3>Summarizing the state of the art</h3>
+        <p>Tools like Elicit, Scispace, and Consensus condense the literature so a new question is grounded in what is already known.</p>
+      </div>
+      <div class="card">
+        <span class="n">04</span>
+        <h3>Comparing &amp; contrasting findings</h3>
+        <p>Scite and NLP contradiction detectors expose disagreements in the literature — often the most productive place to pose a question.</p>
+      </div>
+      <div class="card">
+        <span class="n">05</span>
+        <h3>Integrated research assistants</h3>
+        <p>End-to-end platforms combine search, summarization, and suggestion into one interactive workflow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Guardrails</h2>
+    <p class="sub">
+      The same generative power that suggests high-value questions can hallucinate
+      citations, fabricate conceptual links, or overstate consensus. Responsible use
+      asks researchers to:
+    </p>
+    <ul class="checks">
+      <li><b>Independently review core sources</b> rather than relying solely on AI summaries.</li>
+      <li><b>Confirm that AI-generated citations and claims</b> are accurate and grounded in the original texts.</li>
+      <li><b>Treat AI-suggested questions as exploratory starting points</b>, not final conclusions.</li>
+      <li><b>Reflect on and document</b> how AI shaped their thinking, assumptions, or direction.</li>
+    </ul>
+    <div class="callout">
+      <b>A red-team agent.</b> The paper proposes pairing an ideation agent with a second
+      AI acting as a quality-assurance layer — one that audits citations against real
+      sources, flags unsupported claims, and surfaces missing perspectives.
+      AI for ideation, AI for critical interrogation.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Read &amp; reuse</h2>
+    <p class="sub">The paper, plus the practical materials it ships with.</p>
+    <div class="docs">
+      <a class="doc" href="https://github.com/Ethical-Tech-CoLab/ai-research-question-assistant/blob/main/docs/paper.md">
+        <h3>The full paper</h3>
+        <p>All eight sections, from gap identification through conflict-of-interest detection, with a comparison of AI tools.</p>
+        <span class="arrow">Read →</span>
+      </a>
+      <a class="doc" href="https://github.com/Ethical-Tech-CoLab/ai-research-question-assistant/blob/main/docs/researcher-prompt.md">
+        <h3>Researcher prompt</h3>
+        <p>A reusable prompt, ready to paste into Microsoft Copilot's Researcher tool or any LLM session.</p>
+        <span class="arrow">Copy the prompt →</span>
+      </a>
+      <a class="doc" href="https://github.com/Ethical-Tech-CoLab/ai-research-question-assistant/blob/main/docs/journal-rubric.md">
+        <h3>Journal-credibility rubric</h3>
+        <p>An example 1–5 rubric for scoring how peer-reviewed and trustworthy a journal is.</p>
+        <span class="arrow">See the rubric →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Ethical Tech CoLab</span>
+    <span class="sep">·</span>
+    <a href="https://github.com/Ethical-Tech-CoLab/ai-research-question-assistant">GitHub</a>
+    <span class="sep">·</span>
+    <a href="https://docs.google.com/document/d/e/2PACX-1vSvmcQY-2oere7kNU0Uc5YgKTsf3bKVPVPBCHxH-Mb10rZIzksvaFkcHXFfWZFkWmB6ME8OeMEZrDso/pub">Published paper</a>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">
+      A research initiative of the NYU School of Professional Studies Center for Global
+      Affairs, in collaboration with Microsoft. This paper is supported by AI-enabled
+      research assistance; the M365 Copilot Researcher Agent (OpenAI GPT v5) was used to
+      partially generate and check content. Provided as applied research, "as is,"
+      without warranty.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
