@@ -1,5 +1,8 @@
 # AI-Powered Assistance in Formulating Research Questions
 
+**[Live site](https://ethical-tech-colab.github.io/ai-research-question-assistant/)** ·
+**[Research report](ResearchQuestions-Paper.md)** (plain-language, non-technical)
+
 An [Ethical Tech CoLab](https://github.com/Ethical-Tech-CoLab) project on how AI supports researchers in developing rigorous, answerable research questions — and what guardrails that use requires.
 
 **🔗 Live site: https://ethical-tech-colab.github.io/ai-research-question-assistant/**
