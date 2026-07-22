@@ -15,7 +15,7 @@ Yorke E. Rhodes III, Nathaniel Fossella, Alexa Shamie, Kirsten Co, Taylor Badt, 
 
 - **[docs/paper.md](docs/paper.md)** — the full paper, covering gap identification, question formulation, state-of-the-art summarization, contradiction detection, integrated research assistants, the emotional dimension of scholarship, guardrails, and conflict-of-interest detection.
 - **[docs/researcher-prompt.md](docs/researcher-prompt.md)** — the reusable prompt instructions, ready to paste into Microsoft Copilot's Researcher tool or another LLM session.
-- **[docs/journal-rubric.md](docs/journal-rubric.md)** — an example journal-credibility rubric produced by that prompt.
+- **[docs/journal-rubric.md](docs/journal-rubric.md)** — the fixed journal-credibility rubric that prompt scores against.
 
 ## What the paper covers
 
