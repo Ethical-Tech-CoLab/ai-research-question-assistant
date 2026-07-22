@@ -54,7 +54,7 @@ A static landing page is live on GitHub Pages at **https://ethical-tech-colab.gi
 
 ## Peer Review
 
-An independent academic peer review of this report is available in [`peer-review/`](peer-review/) ([Word](peer-review/ai-research-assistant-Peer-Review.docx) &middot; [Markdown](peer-review/ai-research-assistant-Peer-Review.md)).
+The full independent academic peer review of this report is in [PEER-REVIEW.md](PEER-REVIEW.md) (also available as [Word](peer-review/ai-research-assistant-Peer-Review.docx) under [`peer-review/`](peer-review/)).
 
 **Recommendation:** Major revisions
 
