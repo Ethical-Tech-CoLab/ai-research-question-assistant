@@ -49,3 +49,19 @@ Citation markers in the text (e.g. `[scholink.org]`) appear as plain-text domain
 ## Status
 
 A static landing page is live on GitHub Pages at **https://ethical-tech-colab.github.io/ai-research-question-assistant/**, served from [index.html](index.html). The repository also holds the full paper and its accompanying prompt materials in `docs/`. A richer Next.js web application is planned.
+
+---
+
+## Peer Review
+
+An independent academic peer review of this report is available in [`peer-review/`](peer-review/) ([Word](peer-review/ai-research-assistant-Peer-Review.docx) &middot; [Markdown](peer-review/ai-research-assistant-Peer-Review.md)).
+
+**Recommendation:** Major revisions
+
+**What the review found:**
+
+- A paper whose thesis is that citations must be verifiable carries partly-wrong citations: SCIMUSE is misattributed to NeurIPS 2024 (it is ICML 2024 / arXiv:2405.17044) and the 25% figure is unsourced (S4.2, S9.4-9.5).
+- Genre and unit of contribution are unresolved: the document is at once "the paper" and a plain-language review of a separate repository (Foreword, S1).
+- The central artifact, the prompt, is entirely unevaluated; every effect claim is design argument, not evidence (S1.4 vs S9.2, S7.5).
+
+**Noted strength:** Lucid, intellectually honest exposition that correctly identifies its own crux: the score-plus-link pairing that makes an LLM's weakest point checkable by a non-expert (S12.1).
