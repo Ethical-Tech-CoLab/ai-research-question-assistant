@@ -132,8 +132,8 @@ By building verification into the workflow, a red-team model operationalizes res
 
 ### Researcher Prompt Instructions
 
-The full prompt is reproduced in [researcher-prompt.md](researcher-prompt.md), along with the journal-credibility rubric it produces.
+The full prompt is reproduced in [researcher-prompt.md](researcher-prompt.md), along with the journal-credibility rubric it scores against.
 
-## Journal credibility rubric (example output)
+## Journal credibility rubric (fixed scale)
 
 See [journal-rubric.md](journal-rubric.md).
