@@ -60,8 +60,14 @@ The full independent academic peer review of this report is in [PEER-REVIEW.md](
 
 **What the review found:**
 
-- A paper whose thesis is that citations must be verifiable carries partly-wrong citations: SCIMUSE is misattributed to NeurIPS 2024 (it is ICML 2024 / arXiv:2405.17044) and the 25% figure is unsourced (S4.2, S9.4-9.5).
-- Genre and unit of contribution are unresolved: the document is at once "the paper" and a plain-language review of a separate repository (Foreword, S1).
-- The central artifact, the prompt, is entirely unevaluated; every effect claim is design argument, not evidence (S1.4 vs S9.2, S7.5).
+- A paper whose thesis is that citations must be verifiable carries partly-wrong citations: SCIMUSE is misattributed to NeurIPS 2024 (it is ICML 2024 / arXiv:2405.17044) and the 25% figure is unsourced (S4.2, S9.4-9.5). — **Venue fixed; 25% figure still needs a located citation.**
+- Genre and unit of contribution are unresolved: the document is at once "the paper" and a plain-language review of a separate repository (Foreword, S1). — *Open.*
+- The central artifact, the prompt, is entirely unevaluated; every effect claim is design argument, not evidence (S1.4 vs S9.2, S7.5). — *Open.*
 
 **Noted strength:** Lucid, intellectually honest exposition that correctly identifies its own crux: the score-plus-link pairing that makes an LLM's weakest point checkable by a non-expert (S12.1).
+
+### Revisions applied
+
+- **SCIMUSE venue corrected** from NeurIPS 2024 to **ICML 2024 (Gu & Krenn, preprint arXiv:2405.17044)**, with the citation added at the point of claim in `index.html`, `ResearchQuestions-Paper.md`, and `docs/paper.md` rather than only in the reference list.
+- **AGATHA** is now attributed to CIKM 2020, which the paper previously left unstated.
+- **S9.5 rewritten** from "some bibliographic details could not be confirmed" to a statement of the corrected attributions, keeping one item explicitly open: the ~25% highly-interesting figure is not yet located to a numbered result in the SCIMUSE paper and does not appear in its abstract. It is flagged as approximate at each point of use until pinned down.

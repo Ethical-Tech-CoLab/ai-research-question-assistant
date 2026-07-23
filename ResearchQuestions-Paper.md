@@ -170,13 +170,14 @@ literature-based discovery.
 Once a gap is identified, a language model can be asked to phrase it as a
 research question. The paper's principal example is SCIMUSE, a system developed
 by Xuemei Gu and Mario Krenn at the Max Planck Institute for the Science of
-Light. SCIMUSE builds a knowledge graph from more than 58 million scientific
+Light (Gu and Krenn, ICML 2024; preprint arXiv:2405.17044). SCIMUSE builds a knowledge graph from more than 58 million scientific
 papers, identifies a given scientist's interests from their recent
 publications, and then asks GPT-4 to write research proposals connecting
 concept pairs drawn from that scientist's part of the graph. More than one
 hundred research group leaders at the Max Planck Society rated over four
 thousand of the resulting ideas. The repository's paper reports that roughly one
-quarter were rated four or five out of five for interest.
+quarter were rated four or five out of five for interest (Gu and Krenn, ICML
+2024; arXiv:2405.17044 -- see 9.5 on locating this figure).
 
 An earlier system, AGATHA, published by Sybrandt and colleagues in 2020, works
 in biomedicine. It ranks unexamined connections between genes, diseases, and
@@ -524,16 +525,16 @@ honest, but it means a reader wanting to check a specific claim must search for
 the source themselves. In a paper whose central recommendation is that citations
 be verifiable, this is an uncomfortable gap.
 
-9.5 Some bibliographic details could not be confirmed. The paper attributes
-SCIMUSE to NeurIPS 2024. The work is available as a preprint by Gu and Krenn
-and has been presented at academic venues, but this review could not confirm
-that specific attribution, and the figure of roughly one quarter of ideas rated
-highly interesting does not appear in the preprint abstract, though it may
-appear in the full text. AGATHA was published at the ACM Conference on
-Information and Knowledge Management in 2020, which the paper does not state.
-None of this affects the paper's argument, but it illustrates how easily
-citation detail degrades in AI-assisted writing, including in a paper about that
-very risk.
+9.5 Bibliographic details, corrected. An earlier draft attributed SCIMUSE to
+NeurIPS 2024. That was wrong: the work is by Gu and Krenn and was presented at
+ICML 2024, with the preprint available as arXiv:2405.17044. AGATHA was published
+at the ACM Conference on Information and Knowledge Management (CIKM) in 2020,
+which the paper now states. One item remains open: the figure of roughly one
+quarter of ideas rated highly interesting is not located to a specific section
+of the SCIMUSE paper, and it does not appear in the preprint abstract. Until it
+is pinned to a numbered result it should be read as approximate. Neither error
+affects the paper's argument, but both illustrate how easily citation detail
+degrades in AI-assisted writing, including in a paper about that very risk.
 
 9.6 The paper acknowledges its own AI assistance. It states that a Microsoft
 365 Copilot Researcher agent running an OpenAI GPT model was used to partially
