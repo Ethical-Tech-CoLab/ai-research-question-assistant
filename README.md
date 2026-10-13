@@ -60,7 +60,7 @@ The full independent academic peer review of this report is in [PEER-REVIEW.md](
 
 **What the review found:**
 
-- A paper whose thesis is that citations must be verifiable carries partly-wrong citations: SCIMUSE is misattributed to NeurIPS 2024 (it is ICML 2024 / arXiv:2405.17044) and the 25% figure is unsourced (S4.2, S9.4-9.5). — **Venue fixed; 25% figure still needs a located citation.**
+- A paper whose thesis is that citations must be verifiable carries partly-wrong citations: SCIMUSE is misattributed to NeurIPS 2024 (it is ICML 2024 / arXiv:2405.17044) and the 25% figure is unsourced (S4.2, S9.4-9.5). — **Venue fixed; 25% figure now located (1,107 of 4,451 ideas, 24.9%, SCIMUSE Fig. 4b).**
 - Genre and unit of contribution are unresolved: the document is at once "the paper" and a plain-language review of a separate repository (Foreword, S1). — *Open.*
 - The central artifact, the prompt, is entirely unevaluated; every effect claim is design argument, not evidence (S1.4 vs S9.2, S7.5). — *Open.*
 
@@ -70,4 +70,7 @@ The full independent academic peer review of this report is in [PEER-REVIEW.md](
 
 - **SCIMUSE venue corrected** from NeurIPS 2024 to **ICML 2024 (Gu & Krenn, preprint arXiv:2405.17044)**, with the citation added at the point of claim in `index.html`, `ResearchQuestions-Paper.md`, and `docs/paper.md` rather than only in the reference list.
 - **AGATHA** is now attributed to CIKM 2020, which the paper previously left unstated.
-- **S9.5 rewritten** from "some bibliographic details could not be confirmed" to a statement of the corrected attributions, keeping one item explicitly open: the ~25% highly-interesting figure is not yet located to a numbered result in the SCIMUSE paper and does not appear in its abstract. It is flagged as approximate at each point of use until pinned down.
+- **S9.5 rewritten** from "some bibliographic details could not be confirmed" to a statement of the corrected attributions. The ~25% highly-interesting figure is now pinned to the SCIMUSE paper's expert-evaluation section (1,107 of 4,451 ideas, 24.9%, Figure 4b) and stated exactly in S4.2 and on the landing page.
+- **References section added** to the report (SCIMUSE, AGATHA, Hulley et al. for FINER, Lewis et al. for retrieval-augmented generation), with the FINER and RAG citations placed at the point of claim (Major 4, m5).
+- **S2.2 positioned against FINER and PICO**, stating what the prompt adds over those checklists (Major 4).
+- **S9.2 now sketches a minimal evaluation protocol** for the prompt and the red-team agent, while stating that it has not been run (Major 3).

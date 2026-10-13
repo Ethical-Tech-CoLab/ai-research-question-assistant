@@ -93,7 +93,14 @@ There are databases for finding papers, software for managing references,
 statistical packages for analysis, and peer review for checking conclusions.
 There is very little that helps at the point where the question itself is
 chosen, which is the point where the largest and least recoverable errors are
-made.
+made. What does exist is a set of checklists rather than tools. The FINER
+criteria of Hulley and colleagues [3] ask whether a question is feasible,
+interesting, novel, ethical, and relevant. The PICO family of templates used in
+evidence-based medicine asks the author to name the population, intervention,
+comparison, and outcome before searching. These frameworks define what a good
+question looks like. They do not search the literature, propose candidates, or
+score sources. That is the work the prompt described in Section 5 tries to add,
+and it is the sense in which the gap is real rather than one of definition.
 
 2.3 The response. Language models are unusually well suited to this stage,
 because the task is one of recombination rather than truth. Suggesting that two
@@ -175,11 +182,13 @@ papers, identifies a given scientist's interests from their recent
 publications, and then asks GPT-4 to write research proposals connecting
 concept pairs drawn from that scientist's part of the graph. More than one
 hundred research group leaders at the Max Planck Society rated over four
-thousand of the resulting ideas. The repository's paper reports that roughly one
-quarter were rated four or five out of five for interest (Gu and Krenn, ICML
-2024; arXiv:2405.17044 -- see 9.5 on locating this figure).
+thousand of the resulting ideas. Of the 4,451 ideas rated, 1,107 (24.9 per cent)
+received a four or five out of five for interest, a figure reported in the
+expert-evaluation section of the SCIMUSE paper (Contribution 3, Figure 4b) [1].
+The same section reports that the most common rating was one, given to 36.7 per
+cent of ideas, and a mean rating of 2.4, below the midpoint of the scale.
 
-An earlier system, AGATHA, published by Sybrandt and colleagues in 2020, works
+An earlier system, AGATHA, published by Sybrandt and colleagues in 2020 [2], works
 in biomedicine. It ranks unexamined connections between genes, diseases, and
 chemicals by how plausible they appear given everything published so far. Its
 authors validated it by training it only on literature published before 2015 and
@@ -230,7 +239,7 @@ divided is a field where a well designed study can settle something.
 The final category combines the previous four into one workflow, so that
 searching, summarising, and suggesting happen in a single session. The paper
 notes that some of these systems use a technique called retrieval-augmented
-generation, in which the assistant first retrieves specific passages from real
+generation, introduced by Lewis and colleagues in 2020 [4], in which the assistant first retrieves specific passages from real
 documents and then writes its answer with those passages in front of it. This
 reduces, though it does not eliminate, the tendency to invent material, because
 the model is working from retrieved text rather than from memory alone.
@@ -276,8 +285,8 @@ instrument.
 
    These three overlap substantially with an established framework in research
    methods known as FINER, proposed by Hulley and colleagues in Designing
-   Clinical Research, which holds that a good research question is feasible,
-   interesting, novel, ethical, and relevant. The repository does not cite FINER,
+   Clinical Research [3], which holds that a good research question is feasible,
+   interesting, novel, ethical, and relevant. The underlying paper does not cite FINER,
    and the correspondence is partial rather than exact: the prompt's grounding
    requirement does work that FINER splits between novelty and relevance, and
    the prompt leaves the ethical test to the researcher. The comparison is
@@ -510,7 +519,13 @@ into.
 an unguided assistant, no measurement of whether it reduces fabricated
 citations, and no comparison of the questions it produces against questions
 produced without it. Its design choices are well argued but they remain
-arguments.
+arguments. A minimal test would be enough to change that. Take a fixed set of
+topics from two fields, run each through the same assistant with and without
+the prompt, and have independent raters score the questions produced. Count
+the citations that cannot be found. For the red-team proposal in 7.5, plant a
+small number of fabricated citations in a first draft and record how many the
+second assistant catches. None of this has been done, and the paper's claims
+about the prompt's effect should be read as a design rationale until it is.
 
 9.3 The rubric was generated in a single session on one subject. It is labelled
 as illustrative, and it should not be treated as a validated instrument. Its
@@ -529,10 +544,11 @@ be verifiable, this is an uncomfortable gap.
 NeurIPS 2024. That was wrong: the work is by Gu and Krenn and was presented at
 ICML 2024, with the preprint available as arXiv:2405.17044. AGATHA was published
 at the ACM Conference on Information and Knowledge Management (CIKM) in 2020,
-which the paper now states. One item remains open: the figure of roughly one
-quarter of ideas rated highly interesting is not located to a specific section
-of the SCIMUSE paper, and it does not appear in the preprint abstract. Until it
-is pinned to a numbered result it should be read as approximate. Neither error
+which the paper now states. The figure of roughly one quarter of ideas rated
+highly interesting, which an earlier draft of this report could not locate, is
+now pinned: the SCIMUSE paper reports 1,107 of 4,451 ideas (24.9 per cent)
+rated four or five, in its expert-evaluation section (Figure 4b) [1]. It does
+not appear in the abstract, which is why it was hard to find. Neither error
 affects the paper's argument, but both illustrate how easily citation detail
 degrades in AI-assisted writing, including in a paper about that very risk.
 
@@ -600,6 +616,27 @@ Whether a second AI can reliably audit the first remains genuinely unsettled,
 and the repository would be stronger for saying so. What it does say, clearly
 and repeatedly, is that the researcher who cannot defend the question without
 the assistant does not yet own it.
+
+---
+
+## References
+
+1. Gu, X., and Krenn, M. (2024). Generation and human-expert evaluation of
+   interesting research ideas using knowledge graphs and large language
+   models. ICML 2024; preprint arXiv:2405.17044.
+   https://arxiv.org/abs/2405.17044 (figures cited above are from version 4,
+   revised 24 September 2026).
+2. Sybrandt, J., Tyagin, I., Shtutman, M., and Safro, I. (2020). AGATHA:
+   Automatic graph mining and transformer based hypothesis generation
+   approach. Proceedings of the 29th ACM International Conference on
+   Information and Knowledge Management (CIKM 2020), pp. 2757-2764.
+   https://doi.org/10.1145/3340531.3412684
+3. Hulley, S. B., Cummings, S. R., Browner, W. S., Grady, D. G., and Newman,
+   T. B. (2013). Designing Clinical Research, 4th ed. Lippincott Williams and
+   Wilkins. Source of the FINER criteria.
+4. Lewis, P., et al. (2020). Retrieval-augmented generation for
+   knowledge-intensive NLP tasks. Advances in Neural Information Processing
+   Systems 33. https://arxiv.org/abs/2005.11401
 
 ---
 
